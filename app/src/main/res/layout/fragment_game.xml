@@ -4,6 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".game.GameFragment">
 
+    <data>
+        <variable
+            name="gameViewModel"
+            type="com.example.tutifruti.game.GameViewModel" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,7 +22,7 @@
             android:background="#FFFFFF"
             android:fontFamily="@font/changa_one"
             android:gravity="center|center_horizontal|center_vertical"
-            android:text="@string/fg_letraActual"
+            android:text="@{gameViewModel.letra}"
             android:textColor="#FF0303"
             android:textSize="150sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -50,6 +55,7 @@
             android:layout_marginEnd="44dp"
             android:layout_marginBottom="64dp"
             android:text="@string/fg_siguiente"
+            android:onClick="@{()->gameViewModel.siguienteLetra()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

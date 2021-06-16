@@ -26,10 +26,8 @@ class GameFragment : Fragment() {
 
         binding= DataBindingUtil.inflate(inflater, R.layout.fragment_game, container, false)
         viewModel= ViewModelProvider(this).get(GameViewModel::class.java)
-
-        viewModel.letra.observe(viewLifecycleOwner, Observer {
-            binding.textViewLetra.text= viewModel.letra.value
-        })
+        binding.gameViewModel= viewModel
+        binding.lifecycleOwner=this
 
         viewModel.eventFin.observe(viewLifecycleOwner, Observer {termino->
             if(termino) { //si esta en true termino
@@ -37,11 +35,7 @@ class GameFragment : Fragment() {
                 viewModel.terminoCompleto() //con esto se termina de cerrar
             }
         })
-        binding.button.setOnClickListener {
-            viewModel.siguienteLetra()
-        }
+
         return binding.root
     }
-
-
 }
