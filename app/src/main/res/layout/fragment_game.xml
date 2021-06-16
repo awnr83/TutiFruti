@@ -41,7 +41,7 @@
             android:layout_marginBottom="16dp"
             android:background="#F8F8F8"
             android:gravity="center"
-            android:text="@string/fg_tiempo"
+            android:text="@{gameViewModel.tempString}"
             android:textColor="#000000"
             android:textSize="36sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -56,6 +56,7 @@
             android:layout_marginBottom="64dp"
             android:text="@string/fg_siguiente"
             android:onClick="@{()->gameViewModel.siguienteLetra()}"
+            android:enabled="@{gameViewModel.eventBoton}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

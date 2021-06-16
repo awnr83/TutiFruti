@@ -1,9 +1,13 @@
 package com.example.tutifruti.game
 
+import android.opengl.Visibility
 import android.os.CountDownTimer
+import android.text.format.DateUtils
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 
 //constantes para vibracion
@@ -37,8 +41,11 @@ enum class Vibracion(val parametro: LongArray){
         get()=_letra
     //temporizador
     private val _temp= MutableLiveData<Long>()
-    val temp: LiveData<Long>
+    private val temp: LiveData<Long>
         get()=_temp
+    val tempString= Transformations.map(temp,{
+        DateUtils.formatElapsedTime(it)
+    })
     //vibracion
     private val _eventVibracion= MutableLiveData<Vibracion>()
     val eventVibracion: LiveData<Vibracion>
@@ -47,8 +54,13 @@ enum class Vibracion(val parametro: LongArray){
     private val _eventFin= MutableLiveData<Boolean>()
     val eventFin: LiveData<Boolean>
         get()=_eventFin
+    //evento mostrar boton
+    private val _eventBoton= MutableLiveData<Boolean>()
+    val eventBoton: LiveData<Boolean>
+        get()= _eventBoton
 
     init {
+        _eventBoton.value= false
         _eventFin.value=false //se inica false porque todavia no termino
         iniciarTemporizador()
         resetLista()
@@ -68,6 +80,7 @@ enum class Vibracion(val parametro: LongArray){
             }
             override fun onFinish() {
                 _temp.value= INICIO
+                _eventBoton.value= true
             }
         }
         temporizador.start()
@@ -76,6 +89,7 @@ enum class Vibracion(val parametro: LongArray){
         if(listaLetras.size>0) {
             iniciarTemporizador()
             _letra.value = listaLetras.removeAt(0)
+            _eventBoton.value=false
         }else{
             _eventFin.value=true //como termino se pone en true
         }
