@@ -1,6 +1,7 @@
 package com.example.tutifruti.game
 
 import android.widget.Toast
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
@@ -8,9 +9,18 @@ class GameViewModel: ViewModel() {
 
 //variables
     private lateinit var listaLetras: MutableList<String>
-    var letra= MutableLiveData<String>()
+//encapsulamiento LIVE DATA
+    //letra
+    private val _letra= MutableLiveData<String>()
+    val letra: LiveData<String>
+        get()=_letra
+    //evento termino
+    private val _eventFin= MutableLiveData<Boolean>()
+    val eventFin: LiveData<Boolean>
+        get()=_eventFin
 
     init {
+        _eventFin.value=false //se inica false porque todavia no termino
         resetLista()
         siguienteLetra()
     }
@@ -21,8 +31,13 @@ class GameViewModel: ViewModel() {
 
     fun siguienteLetra(){
         if(listaLetras.size>0)
-            letra.value= listaLetras.removeAt(0)
-//        else
-//            ultima letra
+            _letra.value= listaLetras.removeAt(0)
+        else{
+            _eventFin.value=true //como termino se pone en true
+        }
+    }
+
+    fun terminoCompleto(){
+        _eventFin.value= false //funciona como un candado ya no entra
     }
 }

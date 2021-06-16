@@ -31,9 +31,14 @@ class GameFragment : Fragment() {
             binding.textViewLetra.text= viewModel.letra.value
         })
 
+        viewModel.eventFin.observe(viewLifecycleOwner, Observer {termino->
+            if(termino) { //si esta en true termino
+                findNavController(this).navigate(GameFragmentDirections.actionGameFragmentToFinFragment())
+                viewModel.terminoCompleto() //con esto se termina de cerrar
+            }
+        })
         binding.button.setOnClickListener {
             viewModel.siguienteLetra()
-            //findNavController(this).navigate(GameFragmentDirections.actionGameFragmentToFinFragment())
         }
         return binding.root
     }
