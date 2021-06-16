@@ -1,9 +1,16 @@
 <resources>
     <string name="app_name">Tuti Fruti</string>
-    <!---->
+    <!--Principal-->
+    <string name="fp_tuti">TUTI</string>
+    <string name="fp_fruti">FRUTI</string>
+    <string name="fp_jugar">JUGAR</string>
+    <!--juego-->
     <string name="fg_letra">Letra: </string>
     <string name="fg_letraActual">A</string>
     <string name="fg_cantletra">Candtidad de letras restantes: %d</string>
     <string name="fg_tiempo">00:00</string>
     <string name="fg_siguiente">Vamos por otra letra!</string>
+    <!--Fin-->
+    <string name="ff_salir">Salir</string>
+    <string name="ff_otro">Este Tuti-Fruti se Termino SasuKe!!!</string>
 </resources>

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.example.tutifruti.R
 import com.example.tutifruti.databinding.FragmentGameBinding
 
@@ -30,8 +31,9 @@ class GameFragment : Fragment() {
 
             if(cantidadLetras()>0)
                 siguienteLetra()
-            else
-                Toast.makeText(this.context, "Terminamos!!!", Toast.LENGTH_SHORT).show()
+            else {
+                findNavController(this).navigate(GameFragmentDirections.actionGameFragmentToFinFragment())
+            }
             binding.invalidateAll()
         }
 
