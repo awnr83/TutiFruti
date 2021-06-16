@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Tuti Fruti</string>
+    <!---->
+    <string name="fg_letra">Letra: </string>
+    <string name="fg_letraActual">A</string>
+    <string name="fg_cantletra">Candtidad de letras restantes: %d</string>
+    <string name="fg_tiempo">00:00</string>
+    <string name="fg_siguiente">Vamos por otra letra!</string>
 </resources>

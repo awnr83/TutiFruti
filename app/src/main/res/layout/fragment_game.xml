@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".game.GameFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@drawable/fondo">
+
+        <TextView
+            android:id="@+id/textViewLetra"
+            android:layout_width="175dp"
+            android:layout_height="157dp"
+            android:background="#FFFFFF"
+            android:fontFamily="@font/changa_one"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="@string/fg_letraActual"
+            android:textColor="#FF0303"
+            android:textSize="150sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.88"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.234"
+            tools:text="@string/fg_letraActual" />
+
+        <TextView
+            android:id="@+id/textViewTiempo"
+            android:layout_width="113dp"
+            android:layout_height="99dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginBottom="16dp"
+            android:background="#F8F8F8"
+            android:gravity="center"
+            android:text="@string/fg_tiempo"
+            android:textColor="#000000"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/fg_tiempo" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="44dp"
+            android:layout_marginBottom="64dp"
+            android:text="@string/fg_siguiente"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
